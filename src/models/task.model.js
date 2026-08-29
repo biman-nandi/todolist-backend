@@ -8,7 +8,9 @@ export const taskSchema = new Schema({
   category: String,
   about: String,
   isCompleted: {type: Boolean, default: false},
-  date: {type: Date, default: Date.now()}
+  completedAt: {type: Date, default: null},
+  date: {type: Date, default: Date.now},
+  time: {type: String}
 })
 
 export const Tasks = mongoose.model('Tasks', taskSchema)
