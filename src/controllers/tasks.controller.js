@@ -4,6 +4,9 @@ const addTask = async (req, res) => {
   try {
     const {title, category, about, isCompleted, date, time} = req.body
 
+      time ??= `${String((new Date().getHours() + 1) % 24).padStart(2, '0')}:00`
+
+
     const newTask = new Tasks({title, category, about, isCompleted, date, time})
 
     await newTask.save()
