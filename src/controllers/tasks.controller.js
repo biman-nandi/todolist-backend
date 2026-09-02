@@ -4,11 +4,15 @@ const addTask = async (req, res) => {
   try {
     let {title, category, about, isCompleted, date, time} = req.body
 
-    console.log('recieved time', time)
-    console.log('date', new Date())
-    console.log('time', new Date().getHours())
+      const hour = Number(
+        new Intl.DateTimeFormat("en-IN", {
+          timeZone: 'Asia/Kolkata',
+          hour: "2-digit",
+          hour12: false
+        }).format(now)
+      )
 
-      time ??= `${String((new Date().getHours() + 1) % 24)}:00`
+      time ??= `${String((hour + 1) % 24).padStart(2, "0")}:00`
 
 
     const newTask = new Tasks({title, category, about, isCompleted, date, time})
