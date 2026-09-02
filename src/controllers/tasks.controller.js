@@ -4,6 +4,10 @@ const addTask = async (req, res) => {
   try {
     let {title, category, about, isCompleted, date, time} = req.body
 
+    console.log('recieved time', time)
+    console.log('date', new Date())
+    console.log('time', new Date().getHours())
+
       time ??= `${String((new Date().getHours() + 1) % 24)}:00`
 
 
