@@ -9,7 +9,7 @@ const addTask = async (req, res) => {
           timeZone: 'Asia/Kolkata',
           hour: "2-digit",
           hour12: false
-        }).format(now)
+        }).format(new Date())
       )
 
       time ??= `${String((hour + 1) % 24).padStart(2, "0")}:00`
